@@ -1,6 +1,6 @@
 # Friendship Website
 
-A colorful personal website made to celebrate a meaningful friendship.
+A modern friendship-themed website designed like a digital gift for a best friend.
 
 ## Live Site
 
@@ -8,19 +8,21 @@ A colorful personal website made to celebrate a meaningful friendship.
 
 ## Features
 
-- Emotional friendship-themed landing page
-- Real photo memory gallery
-- Neon note text and colorful headings
-- Auto-playing slideshow with manual controls
-- Mobile-friendly responsive layout
+- Modern glassmorphism UI with gradients and soft shadows
+- Fully responsive layout for mobile, tablet, and desktop
+- Typing quote animation and section reveal effects
+- Surprise message interaction and special popup modal
+- Dark and light mode toggle with saved preference
+- Ambient background music toggle powered by Web Audio API
+- Clean image gallery using `assets/images`
 - GitHub Pages deployment workflow
 
-## Project Structure
+## File Structure
 
-- `index.html` - main page content
-- `style.css` - design, layout, colors, and animations
-- `script.js` - notes interaction and slideshow behavior
-- `images/` - friendship photos
+- `index.html` - page structure and content
+- `style.css` - responsive styling, themes, and animations
+- `script.js` - interactivity, modal, music, typing, and reveal logic
+- `assets/images/` - friendship photos
 
 ## Local Preview
 
@@ -28,4 +30,4 @@ Open `index.html` in a browser.
 
 ## Deployment
 
-This project is configured to deploy automatically to GitHub Pages from the `main` branch.
+The site deploys automatically to GitHub Pages from the `main` branch.
