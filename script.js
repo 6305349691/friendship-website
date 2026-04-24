@@ -11,7 +11,7 @@ const modal = document.getElementById("messageModal");
 const revealTargets = document.querySelectorAll(".reveal-up");
 
 const quotes = [
-  "A best friend is a safe place where your true self never has to hide. ?",
+  "A best friend is a safe place where your true self never has to hide, and that kind of bond is rare.",
   "Some souls recognize each other quietly and stay connected loudly.",
   "Friendship is when a memory can still feel warm years later.",
   "The right person makes life softer, lighter, and more beautiful."
@@ -21,7 +21,7 @@ const surpriseNotes = [
   "You are one of the kindest memories my heart keeps replaying.",
   "If life gave me a thousand people, I would still be grateful it gave me you.",
   "This friendship is a reminder that beautiful people still exist in the world.",
-  "You made laughter easier, silence safer, and memories brighter. ?"
+  "You made laughter easier, silence safer, and memories brighter with every shared moment."
 ];
 
 let quoteIndex = 0;
@@ -32,20 +32,32 @@ let audioContext;
 let musicInterval;
 let isMusicPlaying = false;
 
+function setThemeButtonLabel(themeName) {
+  const label = themeToggle.querySelector(".icon-button-text");
+  if (themeName === "dark") {
+    label.textContent = "Light Mode";
+  } else {
+    label.textContent = "Dark Mode";
+  }
+}
+
 function applySavedTheme() {
   const savedTheme = localStorage.getItem("friendship-theme") || "light";
   body.dataset.theme = savedTheme;
-  themeToggle.querySelector(".icon-button-text").textContent = savedTheme === "dark" ? "Light Mode" : "Dark Mode";
+  setThemeButtonLabel(savedTheme);
 }
 
 function toggleTheme() {
-  const nextTheme = body.dataset.theme === "dark" ? "light" : "dark";
+  let nextTheme = "dark";
+  if (body.dataset.theme === "dark") {
+    nextTheme = "light";
+  }
+
   body.dataset.theme = nextTheme;
   localStorage.setItem("friendship-theme", nextTheme);
-  themeToggle.querySelector(".icon-button-text").textContent = nextTheme === "dark" ? "Light Mode" : "Dark Mode";
+  setThemeButtonLabel(nextTheme);
 }
 
-// Typing effect for rotating friendship quotes.
 function runTypingEffect() {
   const activeQuote = quotes[quoteIndex];
 
@@ -104,7 +116,6 @@ function closeModal() {
   body.classList.remove("modal-open");
 }
 
-// Lightweight ambient music generated with Web Audio so GitHub Pages works without extra media files.
 function playTone(frequency, startTime, duration) {
   const oscillator = audioContext.createOscillator();
   const gain = audioContext.createGain();
