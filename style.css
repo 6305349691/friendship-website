@@ -301,6 +301,46 @@ h1 {
   gap: 18px;
 }
 
+.gallery-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.7fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.slideshow-shell,
+.slideshow-meta {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 252, 247, 0.88);
+  box-shadow: var(--shadow);
+}
+
+.slideshow-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.slideshow-viewport {
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.02);
+  pointer-events: none;
+  transition: opacity 450ms ease, transform 450ms ease;
+}
+
+.slide.is-active {
+  position: relative;
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
 .moment-card {
   min-height: 250px;
   padding: 22px;
@@ -361,10 +401,8 @@ h1 {
 .memory-photo {
   margin: 0;
   overflow: hidden;
-  border: 1px solid var(--line);
   border-radius: 24px;
   background: rgba(255, 252, 247, 0.88);
-  box-shadow: var(--shadow);
 }
 
 .memory-photo img {
@@ -405,6 +443,80 @@ h1 {
   margin: 0;
   color: var(--muted);
   line-height: 1.7;
+}
+
+.slideshow-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(0, 207, 255, 0.14), transparent 26%),
+    radial-gradient(circle at bottom left, rgba(255, 79, 179, 0.15), transparent 30%),
+    rgba(255, 251, 246, 0.92);
+}
+
+.slideshow-meta h3 {
+  margin: 8px 0 12px;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  color: #6f2cff;
+}
+
+.slideshow-meta p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(31, 28, 26, 0.72);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.slide-arrow:hover {
+  transform: translateY(-50%) scale(1.06);
+  background: rgba(31, 28, 26, 0.9);
+}
+
+.slide-arrow-left {
+  left: 16px;
+}
+
+.slide-arrow-right {
+  right: 16px;
+}
+
+.slide-dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.slide-dot {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(31, 28, 26, 0.18);
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.slide-dot.is-active {
+  background: #ff4fb3;
+  box-shadow: 0 0 0 4px rgba(255, 79, 179, 0.16);
+  transform: scale(1.08);
 }
 
 .reasons-layout {
@@ -493,6 +605,7 @@ h1 {
   .reasons-layout,
   .moment-grid,
   .gallery-grid,
+  .gallery-showcase,
   .stats-row {
     grid-template-columns: 1fr;
   }
@@ -534,10 +647,16 @@ h1 {
   .hero-card,
   .moment-card,
   .memory-photo figcaption,
+  .slideshow-meta,
   .reason-list article,
   .quote-panel,
   .promise-box {
     padding: 18px;
+  }
+
+  .slide-arrow {
+    width: 44px;
+    height: 44px;
   }
 
   .moment-card h3 {

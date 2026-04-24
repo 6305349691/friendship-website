@@ -99,24 +99,48 @@
           <h2>Real snapshots from a friendship worth keeping close.</h2>
         </div>
 
-        <div class="gallery-grid">
-          <figure class="memory-photo featured-photo">
-            <img src="images/memory1.jpeg" alt="A friendship photo under bright lights at night.">
-            <figcaption>
-              <span class="photo-tag">Memory 01</span>
-              <h3>One frame, a lot of meaning</h3>
-              <p>A moment that feels warm, effortless, and very us.</p>
-            </figcaption>
-          </figure>
+        <div class="gallery-showcase">
+          <div class="slideshow-shell">
+            <button class="slide-arrow slide-arrow-left" id="prevSlide" type="button" aria-label="Show previous memory">
+              &#8592;
+            </button>
 
-          <figure class="memory-photo">
-            <img src="images/memory2.jpeg" alt="A friendship photo together at an outdoor event.">
-            <figcaption>
-              <span class="photo-tag">Memory 02</span>
-              <h3>Together in the middle of the moment</h3>
-              <p>The kind of picture that instantly brings the whole day back.</p>
-            </figcaption>
-          </figure>
+            <div class="slideshow-viewport">
+              <figure class="memory-photo slide is-active">
+                <img src="images/memory1.jpeg" alt="A friendship photo under bright lights at night.">
+                <figcaption>
+                  <span class="photo-tag">Memory 01</span>
+                  <h3>One frame, a lot of meaning</h3>
+                  <p>A moment that feels warm, effortless, and very us.</p>
+                </figcaption>
+              </figure>
+
+              <figure class="memory-photo slide">
+                <img src="images/memory2.jpeg" alt="A friendship photo together at an outdoor event.">
+                <figcaption>
+                  <span class="photo-tag">Memory 02</span>
+                  <h3>Together in the middle of the moment</h3>
+                  <p>The kind of picture that instantly brings the whole day back.</p>
+                </figcaption>
+              </figure>
+            </div>
+
+            <button class="slide-arrow slide-arrow-right" id="nextSlide" type="button" aria-label="Show next memory">
+              &#8594;
+            </button>
+          </div>
+
+          <div class="slideshow-meta">
+            <p class="eyebrow">Memory reel</p>
+            <h3>Our favorite frames, one after another.</h3>
+            <p>
+              A small slideshow for the moments that deserve to stay visible a little longer.
+            </p>
+            <div class="slide-dots" aria-label="Slideshow navigation">
+              <button class="slide-dot is-active" type="button" data-slide="0" aria-label="Go to memory 1"></button>
+              <button class="slide-dot" type="button" data-slide="1" aria-label="Go to memory 2"></button>
+            </div>
+          </div>
         </div>
       </section>
 
